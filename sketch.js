@@ -66,10 +66,11 @@ function setup() {
 
   //polygon
 
-  polygon = Bodies.circle(50, 200, 50);
+  polygon = Bodies.circle(150, 200, 50);
   World.add(world, polygon);
 
-  slingShot = new SlingShot(this.polygon, {x: 100, y: 200});
+  slingShot = new SlingShot(this.polygon, {x: 150, y: 200});
+
 }
 
 function draw() {
