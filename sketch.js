@@ -7,6 +7,7 @@ function preload() {
 
   bg1 = loadImage("bg.jpg")
   polygonImg = loadImage("polygon.png")
+
 }
 
 function setup() {
@@ -65,7 +66,7 @@ function setup() {
 
   //polygon
 
-  polygon = Bodies.circle(50, 200, 20);
+  polygon = Bodies.circle(50, 200, 50);
   World.add(world, polygon);
 
   slingShot = new SlingShot(this.polygon, {x: 100, y: 200});
@@ -118,7 +119,20 @@ function draw() {
   fill(167, 76, 237);
   block25.display();
 
+  slingShot.display();
+  imageMode (CENTER);
+  image (polygonImg, polygon.position.x, polygon.position.y, 50, 50);
+
   fill("black");
   text(mouseX+ ","+mouseY,mouseX,mouseY);
   
+}
+
+function mouseDragged(){
+  Matter.Body.setPosition(polygon, {x: mouseX , y: mouseY});
+}
+
+
+function mouseReleased(){
+  slingShot.fly();
 }
